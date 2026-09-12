@@ -8,13 +8,15 @@ class Solution {
 
         while (i < j) {
 
-            while (i < j && !isVowel(arr[i])) {
+            if(!isVowel(arr[i])) {
                 i++;
             }
 
-            while (i < j && !isVowel(arr[j])) {
+            else if(!isVowel(arr[j])) {
                 j--;
             }
+            else
+            {
 
             char temp = arr[i];
             arr[i] = arr[j];
@@ -22,6 +24,7 @@ class Solution {
 
             i++;
             j--;
+            }
         }
 
         return new String(arr);
