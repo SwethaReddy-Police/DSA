@@ -19,7 +19,7 @@ class Solution {
             if (t.charAt(i) != '#') {
                 t1 = t1 + t.charAt(i);
             }
-            else if (t1.length() > 0) {
+            else if(t1.length() > 0) {
                 t1 = t1.substring(0, t1.length() - 1);
             }
         }
