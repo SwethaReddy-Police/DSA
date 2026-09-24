@@ -1,18 +1,20 @@
 class Solution {
     public boolean isStrictlyPalindromic(int n) {
-        int k = n - 2;
 
-        for(int i = 2; i <= k; i++) {
-            String s = "";
+        for(int base = 2; base <= n - 2; base++) {
+
             int temp = n;
+            int result = 0;
+            int place = 1;
 
             while(temp > 0) {
-                int rem = temp % i;
-                s = s + rem;
-                temp = temp / i;
+                int rem = temp % base;
+                result = result + rem * place;
+                place = place * 10;
+                temp = temp / base;
             }
 
-            if(!check(s)) {
+            if(!check(result)) {
                 return false;
             }
         }
@@ -20,19 +22,16 @@ class Solution {
         return true;
     }
 
-    public boolean check(String s) {
-        int i = 0;
-        int j = s.length() - 1;
+    public boolean check(int n) {
+        int temp = n;
+        int reverse = 0;
 
-        while(i < j) {
-            if(s.charAt(i) != s.charAt(j)) {
-                return false;
-            }
-
-            i++;
-            j--;
+        while(temp > 0) {
+            int rem = temp % 10;
+            reverse = reverse * 10 + rem;
+            temp = temp / 10;
         }
 
-        return true;
+        return n == reverse;
     }
 }
