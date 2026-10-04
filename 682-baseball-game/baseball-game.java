@@ -1,34 +1,30 @@
-import java.util.Stack;
-
 class Solution {
-    public int calPoints(String[] operations) {
+    public int calPoints(String[] arr) {
         Stack<Integer> st = new Stack<>();
 
-        for(int i = 0; i < operations.length; i++) {
-
-            if(operations[i].equals("C")) {
+        for (int i = 0; i < arr.length; i++) {
+            
+            if (arr[i].equals("C")) {
                 st.pop();
             }
-            else if(operations[i].equals("D")) {
-                int num = st.peek() * 2;
-                st.push(num);
+            else if (arr[i].equals("D")) {
+                int a = st.peek();
+                st.push(a * 2);
             }
-            else if(operations[i].equals("+")) {
+            else if (arr[i].equals("+")) {
                 int a = st.pop();
-                int b = st.pop();
-
-                st.push(b);
+                int b = st.peek();
                 st.push(a);
                 st.push(a + b);
             }
             else {
-                st.push(Integer.parseInt(operations[i]));
+                st.push(Integer.parseInt(arr[i]));
             }
         }
 
         int sum = 0;
 
-        while(!st.isEmpty()) {
+        while (!st.isEmpty()) {
             sum = sum + st.pop();
         }
 
