@@ -20,11 +20,11 @@ class Solution {
 
             i = i+c;
         }
-
-        for (int k = 0; k < s.length(); k++) {
+        int k;
+        for ( k = 0; k < s.length(); k++) {
             chars[k] = s.charAt(k);
         }
 
-        return s.length();
+        return k;
     }
 }
