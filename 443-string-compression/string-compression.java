@@ -1,7 +1,7 @@
 class Solution {
     public int compress(char[] chars) {
         int i = 0;
-        String s = "";
+        int a = 0;
 
         while (i < chars.length) {
             int j = i + 1;
@@ -12,19 +12,45 @@ class Solution {
                 j++;
             }
 
-            if (c == 1) {
-                s = s + chars[i];
-            } else {
-                s = s + chars[i] + c;
+            chars[a] = chars[i];
+            a++;
+
+            if (c > 1) {
+                String count = String.valueOf(c);
+
+                if (c < 10) {
+                    chars[a] = count.charAt(0);
+                    a++;
+                }
+                else if (c < 100) {
+                    chars[a] = count.charAt(0);
+                    a++;
+                    chars[a] = count.charAt(1);
+                    a++;
+                }
+                else if (c < 1000) {
+                    chars[a] = count.charAt(0);
+                    a++;
+                    chars[a] = count.charAt(1);
+                    a++;
+                    chars[a] = count.charAt(2);
+                    a++;
+                }
+                else {
+                    chars[a] = count.charAt(0);
+                    a++;
+                    chars[a] = count.charAt(1);
+                    a++;
+                    chars[a] = count.charAt(2);
+                    a++;
+                    chars[a] = count.charAt(3);
+                    a++;
+                }
             }
 
-            i = i+c;
-        }
-        int k;
-        for ( k = 0; k < s.length(); k++) {
-            chars[k] = s.charAt(k);
+            i = j;
         }
 
-        return k;
+        return a;
     }
 }
