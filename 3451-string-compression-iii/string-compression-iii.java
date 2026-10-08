@@ -13,7 +13,7 @@ class Solution {
             }
 
             comp = comp + c + word.charAt(i);
-            i = j;
+            i =i+c;
         }
 
         return comp;
