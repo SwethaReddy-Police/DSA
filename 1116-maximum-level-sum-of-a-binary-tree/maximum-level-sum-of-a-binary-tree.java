@@ -10,7 +10,7 @@ class Solution {
 
         int max = Integer.MIN_VALUE;
         int level = 1;
-        int ans = 1;
+        int ans = 0;
 
         while(!q.isEmpty())
         {
